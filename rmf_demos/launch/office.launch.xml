@@ -1,7 +1,7 @@
 <?xml version='1.0' ?>
 
 <launch>
-  <arg name="use_sim_time" default="false"/>
+  <arg name="use_sim_time" default="true"/>
 
   <!-- Common launch -->
   <include file="$(find-pkg-share rmf_demos)/common.launch.xml">
