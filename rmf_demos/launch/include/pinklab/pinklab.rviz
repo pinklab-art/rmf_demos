@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /Map1
+        - /Map1/Topic1
         - /Map1/Update Topic1
       Splitter Ratio: 0.5
     Tree Height: 546
@@ -57,7 +58,7 @@ Visualization Manager:
       Name: Map
       Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
@@ -125,11 +126,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 17.623416900634766
+      Scale: 14.848235130310059
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 14.923323631286621
-      Y: -9.078828811645508
+      X: 16.516401290893555
+      Y: -7.884018898010254
     Saved: ~
 Window Geometry:
   Displays:
