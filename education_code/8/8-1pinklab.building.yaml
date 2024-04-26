@@ -34,10 +34,6 @@ levels:
       - [15, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
       - [11, 12, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
       - [12, 13, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [16, 15, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [15, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [11, 12, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [12, 17, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     measurements:
@@ -62,8 +58,6 @@ levels:
       - [1025.3030000000001, 204.30799999999999, 0, point_1]
       - [197.49000000000001, 204.30799999999999, 0, ""]
       - [197.49100000000001, 389.971, 0, ""]
-      - [85.106999999999999, 397.52800000000002, 0, ""]
-      - [1110.54, 189.41900000000001, 0, point_2, {dropoff_ingestor: [1, coke_ingestor], is_holding_point: [4, true]}]
     walls:
       - [3, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [2, 5, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
@@ -82,10 +76,6 @@ levels:
     floors:
       - parameters: {ceiling_scale: [3, 1], ceiling_texture: [1, blue_linoleum], indoor: [2, 0], texture_name: [1, blue_linoleum], texture_rotation: [3, 0], texture_scale: [3, 1]}
         vertices: [3, 2, 1, 0]
-    lanes:
-      - [5, 6, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [6, 7, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [7, 8, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     models:
@@ -99,9 +89,7 @@ levels:
       - [186.976, 132.75200000000001, 0, ""]
       - [187.57499999999999, 571.80499999999995, 0, ""]
       - [343.779, 265.00099999999998, 0, deliverybot_charger, {is_charger: [4, true], is_holding_point: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, deliveryBot_1], spawn_robot_type: [1, DeliveryRobot]}]
-      - [396.49799999999999, 623.36699999999996, 0, restaurant, {is_holding_point: [4, false], pickup_dispenser: [1, coke_dispenser]}]
-      - [233.18299999999999, 633.08299999999997, 0, ""]
-      - [113.851, 635.92499999999995, 0, ""]
+      - [356.10599999999999, 627.49199999999996, 0, ""]
     walls:
       - [0, 1, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [1, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
