@@ -1,0 +1,33 @@
+{
+    "world_name": "PinkLAB",
+    "valid_task": [
+        "Loop",
+        "Delivery"
+    ],
+    "task": {
+        "Delivery": {
+            "option": {
+                "coke": {
+                    "pickup_place_name": "restaurant",
+                    "pickup_dispenser": "coke_dispenser",
+                    "dropoff_place_name": "point_2",
+                    "dropoff_ingestor": "coke_ingestor"
+                }
+            }
+        },
+        "Loop": {
+            "places": [
+                "restaurant",
+                "point_1",
+                "point_2",
+                "deliverybot_charger",
+                "tinyRobot1_charger"
+            ]
+        },
+        "Clean": {
+        },
+        "Station": {},
+        "Patrol": {},
+        "Charging": {}
+    }
+}
