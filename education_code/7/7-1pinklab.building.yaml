@@ -66,46 +66,11 @@ levels:
   L2:
     drawing:
       filename: pinklab_L2.png
-    elevation: 10
+    elevation: 0
     fiducials:
-      - [186.82900000000001, 573.85000000000002, F1]
-      - [186.904, 692.94100000000003, F2]
-    floors:
-      - parameters: {ceiling_scale: [3, 1], ceiling_texture: [1, blue_linoleum], indoor: [2, 0], texture_name: [1, blue_linoleum], texture_rotation: [3, 0], texture_scale: [3, 1]}
-        vertices: [3, 2, 1, 0]
+      - [187.35300000000001, 576.78700000000003, F1]
+      - [185.83600000000001, 695.38300000000004, F2]
     layers:
       {}
-    vertices:
-      - [187.05600000000001, 693.24800000000005, 0, ""]
-      - [507.07499999999999, 693.13599999999997, 0, ""]
-      - [506.72899999999998, 132.93000000000001, 0, ""]
-      - [186.976, 132.75200000000001, 0, ""]
-      - [187.57499999999999, 571.80499999999995, 0, ""]
-    walls:
-      - [0, 1, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
-      - [1, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
-      - [2, 3, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
-      - [3, 4, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
-lifts:
-  lift_1:
-    depth: 1.5
-    doors:
-      lift_door1:
-        door_type: 2
-        motion_axis_orientation: 1.5707
-        width: 1
-        x: 1
-        y: 0
-    highest_floor: L2
-    initial_floor_name: L1
-    level_doors:
-      L1: [lift_door1]
-      L2: [lift_door1]
-    lowest_floor: L1
-    plugins: true
-    reference_floor_name: L1
-    width: 2
-    x: 83.962000000000003
-    y: 395.04000000000002
-    yaw: 0
+lifts: {}
 name: pinklab
