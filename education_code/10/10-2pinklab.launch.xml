@@ -24,12 +24,6 @@
   <executable cmd="ros2 control load_controller --set-state active base_controller" cwd="/home"
     output="screen" />
 
-  <!-- Start navigation2-->
-  <include file="$(find-pkg-share minibot_navigation2)/launch/bringup_launch.xml">
-    <arg name="map" value="$(find-pkg-share rmf_demos_maps)/pinklab/pinklab_nav_map.yaml" /> 
-    <arg name="use_sim_time" value="$(var use_sim_time)" />
-  </include>
-
   <!-- Common launch -->
   <include file="$(find-pkg-share rmf_demos)/pinklab.launch.xml">
     <arg name="use_sim_time" value="$(var use_sim_time)" />
