@@ -1,14 +1,16 @@
 <?xml version='1.0'?>
-
 <launch>
-    <arg name="use_sim_time" default="false" />
-
+    <arg name="gazebo_version" default="11" />
+    <arg name="use_sim_time" default="true" />
+    <arg name="failover_mode" default="false" />
     <!-- Common launch -->
-    <include file="$(find-pkg-share rmf_demos)/common.launch.xml">
+    <include file="$(find-pkg-share rmf_demos)/pinklab.launch.xml">
         <arg name="use_sim_time" value="$(var use_sim_time)" />
-        <arg name="viz_config_file" value="$(find-pkg-share rmf_demos)/include/pinklab/pinklab.rviz" />
-        <arg name="config_file"
-            value="$(find-pkg-share rmf_demos_maps)/pinklab/pinklab.building.yaml" />
+        <arg name="failover_mode" value="$(var failover_mode)" />
     </include>
-
+    <!-- Simulation launch -->
+    <include file="$(find-pkg-share rmf_demos_gz_classic)/simulation.launch.xml">
+        <arg name="map_name" value="pinklab" />
+        <arg name="gazebo_version" value="$(var gazebo_version)" />
+    </include>
 </launch>
