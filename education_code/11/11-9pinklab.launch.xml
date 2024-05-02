@@ -77,13 +77,4 @@
         <param name="scale" value="1.0" />
 
     </node>
-
-
-    <include file="$(find-pkg-share fleet_adapter_template)/launch/fleet_minibot_adapter.launch.xml">
-        <arg name="use_sim_time" value="$(var use_sim_time)" />
-        <arg name="nav_graph_file"
-            value="$(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/2.yaml" />
-        <arg name="config_file"
-            value="$(find-pkg-share rmf_demos)/config/pinklab/minibot_config.yaml" />
-    </include>
 </launch>

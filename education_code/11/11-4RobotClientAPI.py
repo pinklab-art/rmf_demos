@@ -22,7 +22,6 @@
 '''
 import requests
 from urllib.error import HTTPError
-import math
 
 class RobotAPI:
     # The constructor below accepts parameters typically required to submit
@@ -64,7 +63,7 @@ class RobotAPI:
                 return None
             x = position['x']
             y = position['y']
-            angle = math.degrees(position['yaw'])
+            angle = position['yaw']
 
             return [x, y, angle]
 
@@ -76,7 +75,7 @@ class RobotAPI:
             and theta are in the robot's coordinate convention. This function
             should return True if the robot has accepted the request,
             else False'''
-        url = self.prefix+f'/open-rmf/rmf_demos_fm/navigate/{robot_name}'
+        url = self.prefix+f'/open-rmf/rmf-pinklab/navigate/{robot_name}'
         data = {
             "x": pose[0],
             "y": pose[1],
@@ -115,7 +114,7 @@ class RobotAPI:
             Return True if robot has successfully stopped. Else False'''
         # print(f"stop: {robot_name}")
         try: 
-            response = requests.post(f"{self.prefix}/open-rmf/rmf_demos_fm/stop/{robot_name}", timeout=self.timeout)
+            response = requests.post(f"{self.prefix}/open-rmf/rmf-pinklab/stop/{robot_name}", timeout=self.timeout)
             if response.status_code == 200:
                 if response.json()['success']:
                     return True
@@ -146,7 +145,7 @@ class RobotAPI:
         ''' Return True if the robot has successfully completed its previous
             navigation request. Else False.'''
         try: 
-            response = requests.post(f"{self.prefix}/open-rmf/rmf_demos_fm/command_completed/{robot_name}", timeout=self.timeout)
+            response = requests.post(f"{self.prefix}/open-rmf/rmf-pinklab/command_completed/{robot_name}", timeout=self.timeout)
             if response.status_code == 200:
                 if response.json()['success']:
                     # # # print("Command completed")
@@ -177,10 +176,10 @@ class RobotAPI:
 
     def data(self, robot_name=None):
         if robot_name is None:
-            url = self.prefix + f'/open-rmf/rmf_demos_fm/status/'
+            url = self.prefix + f'/open-rmf/rmf-pinklab/status/'
         else:
             url = self.prefix +\
-                f'/open-rmf/rmf_demos_fm/status/{robot_name}'
+                f'/open-rmf/rmf-pinklab/status/{robot_name}'
         try:
             response = requests.get(url, timeout=self.timeout)
             response.raise_for_status()
