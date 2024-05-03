@@ -85,7 +85,5 @@
             value="$(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/2.yaml" />
         <arg name="config_file"
             value="$(find-pkg-share rmf_demos)/config/pinklab/minibot_config.yaml" />
-        <arg name="L1_map_yaml" value="pinklab_nav_map.yaml" />
-        <arg name="L2_map_yaml" value="pinklab_nav_map_L2.yaml" />
     </include>
 </launch>
