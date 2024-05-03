@@ -70,11 +70,11 @@ levels:
       - [798.40599999999995, 389.971, 0, ""]
       - [1025.3030000000001, 389.971, 0, ""]
       - [1025.3030000000001, 204.30799999999999, 0, point_1]
-      - [197.49000000000001, 204.30799999999999, 0, ""]
+      - [197.49000000000001, 204.30799999999999, 0, minibot_charger_1, {is_charger: [4, true], is_holding_point: [4, true], is_parking_spot: [4, true]}]
       - [197.49100000000001, 389.971, 0, ""]
       - [85.106999999999999, 397.52800000000002, 0, ""]
       - [1110.54, 189.41900000000001, 0, point_2, {dropoff_ingestor: [1, coke_ingestor], is_holding_point: [4, true]}]
-      - [1300.48, 171.71899999999999, 0, minibot_charger_1, {is_charger: [4, true], is_holding_point: [4, true], is_parking_spot: [4, true]}]
+      - [1300.48, 171.71899999999999, 0, "", {is_charger: [4, false], is_holding_point: [4, false], is_parking_spot: [4, false]}]
       - [1299.8530000000001, 393.87400000000002, 0, ""]
     walls:
       - [3, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
@@ -100,6 +100,7 @@ levels:
       - [7, 8, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
       - [8, 7, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 2], orientation: [1, ""], speed_limit: [3, 0]}]
       - [7, 6, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 2], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [9, 6, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 2], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     models:
@@ -116,6 +117,7 @@ levels:
       - [396.49799999999999, 623.36699999999996, 0, restaurant, {is_holding_point: [4, false], pickup_dispenser: [1, coke_dispenser]}]
       - [233.18299999999999, 633.08299999999997, 0, ""]
       - [113.851, 635.92499999999995, 0, ""]
+      - [340.84399999999999, 170.608, 0, point_3]
     walls:
       - [0, 1, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [1, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
