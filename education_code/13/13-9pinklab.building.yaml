@@ -12,8 +12,7 @@ crowd_sim:
     - {capacity: 1, set_area: [crowd_goal2], set_id: 1}
     - {capacity: 1, set_area: [crowd_goal3], set_id: 2}
     - {capacity: 1, set_area: [crowd_goal4], set_id: 3}
-  model_types:
-    - {animation: walk, animation_speed: 1, init_pose: [0, 0, 0, 0, 0, 0], model_uri: model://MaleVisitorPhone, typename: human}
+  model_types: []
   obstacle_set: {class: 1, file_name: L1_navmesh.nav, type: nav_mesh}
   states:
     - {final: 1, goal_set: -1, name: external_static, navmesh_file_name: ""}

@@ -2,18 +2,15 @@ coordinate_system: reference_image
 crowd_sim:
   agent_groups:
     - {agents_name: [tinyRobot1], agents_number: 1, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
-    - {agents_name: [], agents_number: 1, group_id: 1, profile_selector: human, state_selector: crowd_goal1_state, x: 11.4091, y: -9.0945999999999998}
   agent_profiles:
     - {ORCA_tau: 1, ORCA_tauObst: 0.40000000000000002, class: 1, max_accel: 0, max_angle_vel: 0, max_neighbors: 10, max_speed: 0, name: external_agent, neighbor_dist: 5, obstacle_set: 1, pref_speed: 0, r: 0.25}
-    - {ORCA_tau: 1, ORCA_tauObst: 0.40000000000000002, class: 1, max_accel: 5, max_angle_vel: 360, max_neighbors: 10, max_speed: 4, name: human, neighbor_dist: 5, obstacle_set: 1, pref_speed: 2, r: 0.25}
   enable: 1
   goal_sets:
     - {capacity: 1, set_area: [crowd_goal1], set_id: 0}
     - {capacity: 1, set_area: [crowd_goal2], set_id: 1}
     - {capacity: 1, set_area: [crowd_goal3], set_id: 2}
     - {capacity: 1, set_area: [crowd_goal4], set_id: 3}
-  model_types:
-    - {animation: walk, animation_speed: 1, init_pose: [0, 0, 0, 0, 0, 0], model_uri: model://MaleVisitorPhone, typename: human}
+  model_types: []
   obstacle_set: {class: 1, file_name: L1_navmesh.nav, type: nav_mesh}
   states:
     - {final: 1, goal_set: -1, name: external_static, navmesh_file_name: ""}
@@ -21,11 +18,7 @@ crowd_sim:
     - {final: 0, goal_set: 1, name: crowd_goal2_state, navmesh_file_name: L1_navmesh.nav}
     - {final: 0, goal_set: 2, name: crowd_goal3_state, navmesh_file_name: L1_navmesh.nav}
     - {final: 0, goal_set: 3, name: crowd_goal4_state, navmesh_file_name: L1_navmesh.nav}
-  transitions:
-    - {Condition: {condition1: {distance: 1, type: goal_reached}, condition2: {dist: c, per_agent: true, type: timer, value: 5}, type: or}, Target: [{name: crowd_goal2_state, weight: 0.40000000000000002}, {name: crowd_goal3_state, weight: 0.20000000000000001}, {name: crowd_goal4_state, weight: 0.40000000000000002}], from: crowd_goal1_state, to: ""}
-    - {Condition: {condition1: {distance: 1, type: goal_reached}, condition2: {dist: c, per_agent: true, type: timer, value: 5}, type: or}, Target: [{name: crowd_goal1_state, weight: 0.40000000000000002}, {name: crowd_goal3_state, weight: 0.40000000000000002}, {name: crowd_goal4_state, weight: 0.20000000000000001}], from: crowd_goal2_state, to: ""}
-    - {Condition: {condition1: {distance: 1, type: goal_reached}, condition2: {dist: c, per_agent: true, type: timer, value: 5}, type: or}, Target: [{name: crowd_goal1_state, weight: 0.20000000000000001}, {name: crowd_goal2_state, weight: 0.20000000000000001}, {name: crowd_goal4_state, weight: 0.59999999999999998}], from: crowd_goal3_state, to: ""}
-    - {Condition: {condition1: {distance: 1, type: goal_reached}, condition2: {dist: c, per_agent: true, type: timer, value: 5}, type: or}, Target: [{name: crowd_goal1_state, weight: 0.40000000000000002}, {name: crowd_goal2_state, weight: 0.40000000000000002}, {name: crowd_goal3_state, weight: 0.20000000000000001}], from: crowd_goal4_state, to: ""}
+  transitions: []
   update_time_step: 0.10000000000000001
 graphs:
   {}
