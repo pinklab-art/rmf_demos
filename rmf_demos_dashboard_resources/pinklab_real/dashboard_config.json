@@ -1,0 +1,24 @@
+{
+    "world_name": "PinkLAB(REAL WORLD)",
+    "valid_task": [
+        "Loop"
+    ],
+    "task": {
+        "Delivery": {
+        },
+        "Loop": {
+            "places": [
+                "minibot_charger_1",
+                "point_1",
+                "point_2",
+                "point_3",
+                "point_4"
+            ]
+        },
+        "Clean": {
+        },
+        "Station": {},
+        "Patrol": {},
+        "Charging": {}
+    }
+}

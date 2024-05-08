@@ -1,0 +1,12 @@
+<?xml version='1.0' ?>
+
+<launch>
+  <arg name="use_sim_time" default="false"/>
+  <!-- Common launch -->
+  <include file="$(find-pkg-share rmf_demos)/common.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="viz_config_file" value ="$(find-pkg-share rmf_demos)/include/pinklab_real/pinklab_real.rviz"/>
+    <arg name="config_file" value="$(find-pkg-share rmf_demos_maps)/pinklab_real/pinklab_real.building.yaml"/>
+    <arg name="dashboard_config_file" value="$(find-pkg-share rmf_demos_dashboard_resources)/pinklab_real/dashboard_config.json"/>
+  </include>
+</launch>

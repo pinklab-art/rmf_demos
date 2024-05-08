@@ -33,6 +33,5 @@ install(DIRECTORY
   hotel
   clinic
   pinklab
-  pinklab_real
   DESTINATION share/${PROJECT_NAME}
 )
