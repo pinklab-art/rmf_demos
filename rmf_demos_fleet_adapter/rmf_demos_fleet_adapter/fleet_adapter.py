@@ -35,6 +35,7 @@ from rmf_fleet_msgs.msg import ClosedLanes
 from rmf_fleet_msgs.msg import LaneRequest
 from rmf_fleet_msgs.msg import ModeRequest
 from rmf_fleet_msgs.msg import RobotMode
+from rmf_fleet_msgs.msg import SpeedLimitRequest
 import yaml
 
 from .RobotClientAPI import RobotAPI
@@ -138,6 +139,9 @@ def main(argv=sys.argv):
         )
 
     def update_loop():
+        reassign_task_interval = config_yaml['rmf_fleet'].get(
+            'reassign_task_interval', 60)  # seconds
+        last_task_replan = node.get_clock().now()
         asyncio.set_event_loop(asyncio.new_event_loop())
         while rclpy.ok():
             now = node.get_clock().now()
@@ -151,6 +155,12 @@ def main(argv=sys.argv):
                 asyncio.wait(update_jobs)
             )
 
+            interval_sec = (now.nanoseconds -
+                            last_task_replan.nanoseconds) / 1e9
+            if interval_sec > reassign_task_interval:
+                fleet_handle.more().reassign_dispatched_tasks()
+                last_task_replan = now
+
             next_wakeup = now + Duration(nanoseconds=update_period * 1e9)
             while node.get_clock().now() < next_wakeup:
                 time.sleep(0.001)
@@ -160,6 +170,7 @@ def main(argv=sys.argv):
 
     # Connect to the extra ROS2 topics that are relevant for the adapter
     connections = ros_connections(node, robots, fleet_handle)
+    connections  # Avoid unused variable warning
 
     # Create executor for the command handle node
     rclpy_executor = rclpy.executors.SingleThreadedExecutor()
@@ -272,9 +283,11 @@ class RobotAdapter:
         if self.execution is not None:
             self.execution.finished()
             self.execution = None
-            self.attempt_cmd_until_success(
-                cmd=self.api.toggle_teleop, args=(self.name, False)
-            )
+            if self.teleoperation:
+                self.attempt_cmd_until_success(
+                    cmd=self.api.toggle_teleop, args=(self.name, False)
+                )
+                self.teleoperation = None
 
     def perform_docking(self, destination):
         match self.api.start_activity(
@@ -433,12 +446,25 @@ def ros_connections(node, robots, fleet_handle):
             closed_lanes.add(lane_idx)
 
         for lane_idx in msg.open_lanes:
-            closed_lanes.remove(lane_idx)
+            if lane_idx in closed_lanes:
+                closed_lanes.remove(lane_idx)
 
         state_msg = ClosedLanes()
         state_msg.fleet_name = fleet_name
         state_msg.closed_lanes = list(closed_lanes)
         closed_lanes_pub.publish(state_msg)
+
+    def speed_limit_request_cb(msg):
+        if msg.fleet_name is None or msg.fleet_name != fleet_name:
+            return
+
+        requests = []
+        for limit in msg.speed_limits:
+            request = rmf_adapter.fleet_update_handle.SpeedLimitRequest(
+                limit.lane_index, limit.speed_limit)
+            requests.append(request)
+        fleet_handle.more().limit_lane_speeds(requests)
+        fleet_handle.more().remove_speed_limits(msg.remove_limits)
 
     def mode_request_cb(msg):
         if (
@@ -461,6 +487,13 @@ def ros_connections(node, robots, fleet_handle):
         qos_profile=qos_profile_system_default,
     )
 
+    speed_limit_request_sub = node.create_subscription(
+        SpeedLimitRequest,
+        'speed_limit_requests',
+        speed_limit_request_cb,
+        qos_profile=qos_profile_system_default,
+    )
+
     action_execution_notice_sub = node.create_subscription(
         ModeRequest,
         'action_execution_notice',
@@ -470,6 +503,7 @@ def ros_connections(node, robots, fleet_handle):
 
     return [
         lane_request_sub,
+        speed_limit_request_sub,
         action_execution_notice_sub,
     ]
 
