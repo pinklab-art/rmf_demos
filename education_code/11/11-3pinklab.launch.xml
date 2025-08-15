@@ -27,12 +27,4 @@
           <arg name="config_file" value="$(find-pkg-share rmf_demos)/config/pinklab/deliveryRobot_config.yaml"/>
         </include>
       </group> -->
-
-
-  <node pkg="fleet_adapter_template" exec="fleet_adapter" name="fleet_adapter" output="screen" 
-    args="-c $(find-pkg-share rmf_demos)/config/pinklab/vicpinky_config.yaml
-      -n $(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/2.yaml
-      -s $(var server_uri)
-      -sim">
-  </node>
 </launch>
