@@ -4,11 +4,13 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="failover_mode" default="false"/>
   <arg name="gazebo_version" default='8'/>
+  <arg name="server_uri" default="" description="The URI of the api server to transmit state and task information."/>
 
   <!-- Common launch -->
   <include file="$(find-pkg-share rmf_edu_demos)/launch/workshop.launch.xml">
     <arg name="use_sim_time" value="$(var use_sim_time)"/>
     <arg name="failover_mode" value="$(var failover_mode)"/>
+    <arg name="server_uri" value="$(var server_uri)"/>
   </include>
 
   <!-- Simulation launch -->

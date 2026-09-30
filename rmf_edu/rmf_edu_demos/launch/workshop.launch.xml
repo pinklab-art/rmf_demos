@@ -2,12 +2,14 @@
 
 <launch>
   <arg name="use_sim_time" default="false"/>
+  <arg name="server_uri" default="" description="The URI of the api server to transmit state and task information."/>
 
   <!-- Common launch -->
   <include file="$(find-pkg-share rmf_demos)/common.launch.xml">
     <arg name="use_sim_time" value="$(var use_sim_time)"/>
     <arg name="viz_config_file" value ="$(find-pkg-share rmf_edu_demos)/launch/include/workshop/workshop.rviz"/>
     <arg name="config_file" value="$(find-pkg-share rmf_edu_maps)/workshop/workshop.building.yaml"/>
+    <arg name="server_uri" value="$(var server_uri)"/>
   </include>
 
     <!-- TinyRobot fleet adapter -->
@@ -16,6 +18,7 @@
       <arg name="use_sim_time" value="$(var use_sim_time)"/>
       <arg name="nav_graph_file" value="$(find-pkg-share rmf_edu_maps)/maps/workshop/nav_graphs/0.yaml" />
       <arg name="config_file" value="$(find-pkg-share rmf_edu_demos)/config/workshop/tinyRobot_config.yaml"/>
+      <arg name="server_uri" value="$(var server_uri)"/>
     </include>
   </group> 
 
@@ -26,6 +29,7 @@
       <arg name="use_sim_time" value="$(var use_sim_time)"/>
       <arg name="nav_graph_file" value="$(find-pkg-share rmf_edu_maps)/maps/workshop/nav_graphs/1.yaml" />
       <arg name="config_file" value="$(find-pkg-share rmf_edu_demos)/config/workshop/cleanerBotA_config.yaml"/>
+      <arg name="server_uri" value="$(var server_uri)"/>
     </include>
   </group> 
 
